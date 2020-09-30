@@ -1,13 +1,13 @@
 import React from 'react'
 import { Text,View } from 'react-native'
+import Header from '../components/Header'
 
-
-export default ()=>{
+export default ({navigation})=>{
     return(
         <View>
-            <Text>
-                Navigation
-            </Text>
+            
+                <Header handleOpen={()=>navigation.openDrawer()} title='Navigation'/>
+            
         </View>
     )
 }

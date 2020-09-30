@@ -1,14 +1,11 @@
 import React from 'react'
 import { Button, Text,View } from 'react-native'
-
+import Header from '../components/Header'
 
 export default ({navigation})=>{
     return(
         <View>
-            <Text>Home Screen</Text>
-            <Button  title='Go to Navigation'
-             onPress={()=>navigation.openDrawer()} 
-             /> 
+            <Header handleOpen={()=>navigation.openDrawer()} title='Home'/>
         </View>
     )
 }

@@ -4,6 +4,7 @@ import React from 'react';
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -17,6 +18,9 @@ import NavigationScreen from './screens/NavigationScreen'
 
 
 const Drawer = createDrawerNavigator()
+
+
+
 class App  extends React.Component  {
   state={
     films:[],
@@ -37,7 +41,7 @@ class App  extends React.Component  {
         <>
           <NavigationContainer>
             <Drawer.Navigator initialRouteName="Home">
-
+           
              <Drawer.Screen 
              name="Home" 
              component={HomeScreen} />
