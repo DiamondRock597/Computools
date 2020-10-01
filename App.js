@@ -2,22 +2,12 @@
 
 import React from 'react';
 import 'react-native-gesture-handler'
-import { NavigationContainer } from '@react-navigation/native'
-import { createDrawerNavigator } from '@react-navigation/drawer';
-
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import HomeScreen from './screens/HomeScreens'
-import NavigationScreen from './screens/NavigationScreen'
+import {NavigationContainer } from '@react-navigation/native';
+import {  StyleSheet} from 'react-native';
+import {MainNavigation} from './src/navigation/MainNavigation'
 
 
-const Drawer = createDrawerNavigator()
+
 
 
 
@@ -34,28 +24,21 @@ class App  extends React.Component  {
       .finally(()=>this.setState({isLoading:false}))
   }
 
+
   
   render() {
     
-    return (
-        <>
-          <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Home">
-           
-             <Drawer.Screen 
-             name="Home" 
-             component={HomeScreen} />
+    return(
+      <NavigationContainer initialParams={{data:this.state.films}}>
+        <MainNavigation 
+         data={this.state.isLoading?[]:this.state.films}
+        />
+      </NavigationContainer>
+        
 
-             <Drawer.Screen 
-             name="Navigation" 
-             component={NavigationScreen} />
-
-            </Drawer.Navigator>
-          </NavigationContainer>
-        </>
+      
     )
-  }
-};
+}};
 
 const styles = StyleSheet.create({
   
