@@ -2,6 +2,8 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home} from '../screens/Home';
 import {HeaderButton} from '../components/HeaderButton';
+import {DiscrFilm} from '../components/componentForScreens/discrFilm'
+import { Button } from 'react-native';
 const Stack = createStackNavigator()
 
 
@@ -23,18 +25,18 @@ export class HomeStack extends React.Component {
 
 
     render(){
-       console.log(this.props)
         return(
             <Stack.Navigator 
             screenOptions={
                 {headerTitleAlign:'center',
                 headerTitleStyle:{
-                    color:'black',
-                    fontSize:22
+                    color:'white',
+                    fontSize:24
                 },
                 headerStyle:{
-                    backgroundColor:'#6595e0'
-                }}
+                    backgroundColor:'#6d6d82'
+                }
+            }
             }>
 
                 <Stack.Screen 
@@ -42,6 +44,7 @@ export class HomeStack extends React.Component {
                  options={this.homeOptions} 
                  name='Home' 
                  component={Home}/>
+                 <Stack.Screen  name='Discription' component={DiscrFilm}/>
                 
             </Stack.Navigator>
         )

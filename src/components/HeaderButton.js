@@ -8,7 +8,10 @@ export const HeaderButton = ({handlePress}) => {
                  style={styles.icon}  
                  name="bars"
                  size={25} 
-                 onPress={handlePress} />
+                 onPress={handlePress} 
+                 color='white'
+                 
+                 />
     )
 }
 

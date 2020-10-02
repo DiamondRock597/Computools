@@ -1,11 +1,11 @@
 import React from 'react'
 import { View,StyleSheet,Text } from 'react-native'
 
-export const HeaderHome = ()=>{
+export const HeaderHome = ({title})=>{
     return(
         <View style={styles.headerHome}>
                 <Text h2 style={styles.headerText}>
-                    Latest Realeses
+                    {title}
                 </Text>
             </View>
     )
