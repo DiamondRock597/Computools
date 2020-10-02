@@ -4,7 +4,7 @@ import { View,StyleSheet,Text } from 'react-native'
 export const HeaderHome = ()=>{
     return(
         <View style={styles.headerHome}>
-                <Text style={styles.headerText}>
+                <Text h2 style={styles.headerText}>
                     Latest Realeses
                 </Text>
             </View>
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         paddingVertical:20,
     },
     headerText:{
-        fontSize:18,
+        fontSize:20,
         color:'black',
         opacity:0.8
     }
