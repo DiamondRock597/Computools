@@ -1,9 +1,6 @@
-import React from 'react'
-import { Text, View } from 'react-native'
-
+import React from 'react';
+import {Text} from 'react-native';
 
 export const Favourite = () => {
-  return (
-    <Text>Favourite</Text>
-  )
-}
+  return <Text>Favourite</Text>;
+};
