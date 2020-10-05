@@ -11,8 +11,8 @@ class Home extends React.Component {
   }
 
   renderList = () => {
-    console.log(this.props.favouriteFilms);
     const {films} = this.props;
+
     const {navigation} = this.props;
     return (
       <SafeAreaView style={{backgroundColor: '#e6e6df', flex: 1}}>
@@ -30,21 +30,13 @@ class Home extends React.Component {
             />
           }
           keyExtractor={(item) => item.id}
-          renderItem={({item}) => (
-            <Cart
-              
-              item={item}
-              navigation={navigation}
-            />
-          )}
+          renderItem={({item}) => <Cart item={item} navigation={navigation} />}
         />
       </SafeAreaView>
     );
   };
 
   render() {
-    console.log(this.props);
-
     return this.renderList();
   }
 }

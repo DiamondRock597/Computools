@@ -18,13 +18,12 @@ const shadowOpt = {
   },
 };
 
-export const Cart = ({item, navigation, addFavourite}) => {
+export const Cart = ({item, navigation}) => {
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate('Discription', {
           film: item,
-          addFavourite: addFavourite,
         })
       }>
       <BoxShadow setting={shadowOpt}>

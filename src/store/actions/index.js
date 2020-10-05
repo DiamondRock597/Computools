@@ -8,7 +8,8 @@ export const getData = () => {
       .then((responce) => responce.json())
       .then((data) => {
         dispatch({type: GET_DATA, payload: data.results});
-      });
+      })
+      .catch((e) => console.log(e));
   };
 };
 

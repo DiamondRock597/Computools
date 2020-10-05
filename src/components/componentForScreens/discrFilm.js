@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {addFavourite} from '../../store/actions';
 import {ScrollView, View, Text, StyleSheet, Dimensions} from 'react-native';
 import {BoxShadow} from 'react-native-shadow';
 import AutoHeightImage from 'react-native-auto-height-image';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
-
-export const DiscrFilm = ({route}) => {
-  const {film, addFavourite} = route.params;
+const DiscrFilm = ({route, addFavourite}) => {
+  const {film} = route.params;
   const shadowOpt = {
     width: (width - 10 + 2) / 2,
     height: 300,
@@ -24,7 +25,8 @@ export const DiscrFilm = ({route}) => {
   };
 
   const releaseData = new Date(film.release_date);
-  const [favourite, setFavourite] = useState(false);
+
+  const [fav, setFav] = useState(film.favourite);
 
   return (
     <ScrollView
@@ -44,28 +46,28 @@ export const DiscrFilm = ({route}) => {
         <View style={styles.textRatingBlock}>
           <Icon
             onPress={() => {
-              setFavourite(!favourite);
-              // addFavourite(film.id);
+              addFavourite(film.id);
+              setFav(!fav);
             }}
-            name={favourite ? 'star' : 'star-o'}
+            name={fav ? 'star' : 'star-o'}
             size={30}
             color="yellow"
           />
           <Text style={styles.textRating}>
-            <Text style={{fontWeight: '700'}}>Score:</Text>
+            <Text style={styles.headerTitle}>Score:</Text>
             {'\n'} {film.vote_average}
           </Text>
           <Text style={styles.textRating}>
-            <Text style={{fontWeight: '700'}}>Rating:{'\n'}</Text>{' '}
+            <Text style={styles.headerTitle}>Rating:{'\n'}</Text>{' '}
             {film.adult ? 'R' : 'PG'}
           </Text>
           <Text style={styles.textRating}>
-            <Text style={{fontWeight: '700'}}>Release Data:</Text>
+            <Text style={styles.headerTitle}>Release Data:</Text>
             {'\n'} {releaseData.toDateString().slice(3)}
           </Text>
         </View>
       </View>
-      <View style={{justifyContent: 'center'}}>
+      <View style={styles.center}>
         <View>
           <Text style={styles.name}>
             {film.original_title}({releaseData.toDateString().slice(-4)})
@@ -114,4 +116,21 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.8,
     borderColor: 'gray',
   },
+  headerTitle:{
+    fontWeight:'700'
+  },
+  center:{
+    justifyContent:'center'
+  }
 });
+
+const mapStateToProps = (state) => {
+  return {};
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addFavourite: (id) => dispatch(addFavourite(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DiscrFilm);

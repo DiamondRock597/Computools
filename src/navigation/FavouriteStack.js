@@ -1,7 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Favourite} from '../screens/Favourite';
+import Favourite from '../screens/Favourite';
 import {HeaderButton} from '../components/HeaderButton';
+import DiscrFilm from '../components/componentForScreens/discrFilm';
 const Stack = createStackNavigator();
 
 export class FavouriteStack extends React.Component {
@@ -28,6 +29,7 @@ export class FavouriteStack extends React.Component {
           name="Favourite"
           component={Favourite}
         />
+        <Stack.Screen name="Discription" component={DiscrFilm} />
       </Stack.Navigator>
     );
   }

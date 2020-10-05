@@ -7,17 +7,25 @@ const initialState = {
 };
 
 export const data = (state = initialState, action) => {
-  const newFav = state.films.filter((item) => item.id === action.payload);
   switch (action.type) {
     case GET_DATA:
       return {
         ...state,
-        films: action.payload,
+        films: action.payload.map((item) => {
+          return {...item, favourite: false};
+        }),
       };
     case ADD_FAV:
+      const favFilms = state.films.map((film) => {
+        if (film.id === action.payload) {
+          film.favourite = !film.favourite;
+        }
+        return film;
+      });
+
       return {
-        ...state,
-        favouriteFilms: [...state.favouriteFilms, ...newFav],
+        films: [...favFilms],
+        favouriteFilms: favFilms.filter((film) => film.favourite),
       };
     default:
       return state;
