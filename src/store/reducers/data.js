@@ -1,4 +1,3 @@
-import {act} from 'react-test-renderer';
 import {GET_DATA, ADD_FAV} from '../types';
 
 const initialState = {
@@ -11,10 +10,9 @@ export const data = (state = initialState, action) => {
     case GET_DATA:
       return {
         ...state,
-        films: action.payload.map((item) => {
-          return {...item, favourite: false};
-        }),
+        films: action.payload.map((item) =>  ({...item, favourite: false}))
       };
+      
     case ADD_FAV:
       const favFilms = state.films.map((film) => {
         if (film.id === action.payload) {

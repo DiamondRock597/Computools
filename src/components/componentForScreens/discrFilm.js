@@ -7,6 +7,8 @@ import AutoHeightImage from 'react-native-auto-height-image';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
+
+
 const DiscrFilm = ({route, addFavourite}) => {
   const {film} = route.params;
   const shadowOpt = {
@@ -124,13 +126,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => {
-  return {};
-};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addFavourite: (id) => dispatch(addFavourite(id)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DiscrFilm);
+export default connect(null, mapDispatchToProps)(DiscrFilm);

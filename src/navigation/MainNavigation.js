@@ -7,11 +7,9 @@ import {FavouriteStack} from './FavouriteStack';
 
 const Drawer = createDrawerNavigator();
 
-export const MainNavigation = () => {
-  return (
-    <Drawer.Navigator initialRouteName="Home">
-      <Drawer.Screen name="Home" component={HomeStack} />
-      <Drawer.Screen name="Favourite" component={FavouriteStack} />
-    </Drawer.Navigator>
-  );
-};
+export const MainNavigation = () => (
+  <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Screen name="Home" component={HomeStack} />
+    <Drawer.Screen name="Favourite" component={FavouriteStack} />
+  </Drawer.Navigator>
+);

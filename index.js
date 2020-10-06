@@ -11,12 +11,10 @@ const initialState = {data: {films: [], favouriteFilms: []}};
 
 const store = createStore(reducer, initialState, applyMiddleware(Thunk));
 
-const reduxApp = () => {
-  return (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-};
+const reduxApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
 
 AppRegistry.registerComponent(appName, () => reduxApp);

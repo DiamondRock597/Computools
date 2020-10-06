@@ -18,24 +18,22 @@ const shadowOpt = {
   },
 };
 
-export const Cart = ({item, navigation}) => {
-  return (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate('Discription', {
-          film: item,
-        })
-      }>
-      <BoxShadow setting={shadowOpt}>
-        <AutoHeightImage
-          width={(width - 42) / 2}
-          source={{uri: `http://image.tmdb.org/t/p/w342${item.poster_path}`}}
-          style={styles.image}
-        />
-      </BoxShadow>
-    </TouchableOpacity>
-  );
-};
+export const Cart = ({item, navigation}) => (
+  <TouchableOpacity
+    onPress={() =>
+      navigation.navigate('Discription', {
+        film: item,
+      })
+    }>
+    <BoxShadow setting={shadowOpt}>
+      <AutoHeightImage
+        width={(width - 42) / 2}
+        source={{uri: `http://image.tmdb.org/t/p/w342${item.poster_path}`}}
+        style={styles.image}
+      />
+    </BoxShadow>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   image: {

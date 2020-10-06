@@ -47,18 +47,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  return {
-    films: state.data.films,
-    favouriteFilms: state.data.favouriteFilms,
-  };
-};
+const mapStateToProps = (state) => ({
+  films: state.data.films,
+  favouriteFilms: state.data.favouriteFilms,
+})
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getData: () => dispatch(getData()),
-    addFavourite: (id) => dispatch(addFavourite(id)),
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  getData: () => dispatch(getData()),
+  addFavourite: (id) => dispatch(addFavourite(id)),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
