@@ -131,13 +131,4 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addFavourite: (id) => dispatch(addFavourite(id)),
-//   };
-// };
-
 export default DiscrFilm;
-
-// connect(null, mapDispatchToProps)(DiscrFilm);
