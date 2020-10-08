@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
 
-const DiscrFilm = ({route}) => {
+const DiscrFilm = ({route, addFavourite}) => {
   const {film} = route.params;
   const shadowOpt = {
     width: (width - 10 + 2) / 2,
@@ -132,10 +132,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addFavourite: (id) => dispatch(addFavourite(id)),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addFavourite: (id) => dispatch(addFavourite(id)),
+//   };
+// };
 
-export default connect(null, mapDispatchToProps)(DiscrFilm);
+export default DiscrFilm;
+
+// connect(null, mapDispatchToProps)(DiscrFilm);
