@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+
 import Favourite from '../screens/Favourite';
 import {HeaderButton} from '../components/HeaderButton';
 import DiscrFilm from '../components/componentForScreens/discrFilm';

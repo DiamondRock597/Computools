@@ -1,11 +1,11 @@
 import React from 'react';
-import {Cart} from '../components/componentForScreens/Cart'
+import {Cart} from '../components/componentForScreens/Cart';
 import {connect} from 'react-redux';
-import {SafeAreaView, View, Text} from 'react-native';
+import {SafeAreaView, View, Text, StyleSheet} from 'react-native';
 import {FlatGrid} from 'react-native-super-grid';
 
-const Favourite = ({films,navigation}) => (
-  <SafeAreaView style={{backgroundColor: '#e6e6df', flex: 1}}>
+const Favourite = ({films, navigation}) => (
+  <SafeAreaView style={styles.safeArea}>
     <FlatGrid
       itemDimension={130}
       data={films}
@@ -21,6 +21,13 @@ const Favourite = ({films,navigation}) => (
   </SafeAreaView>
 );
 
-const mapStateToProps = (state) => ({films: state.data.favouriteFilms})
+const mapStateToProps = (state) => ({films: state.data.favouriteFilms});
 
-export default connect(mapStateToProps,null)(Favourite);
+export default connect(mapStateToProps, null)(Favourite);
+
+const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: '#e6e6df',
+    flex: 1,
+  },
+});

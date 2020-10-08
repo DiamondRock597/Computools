@@ -1,4 +1,4 @@
 import {combineReducers} from 'redux';
 import {data} from './data';
 
-export default rootReducer = combineReducers({data});
+export const rootReducer = combineReducers({data});

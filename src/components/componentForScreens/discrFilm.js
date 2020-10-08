@@ -8,8 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
 
-
-const DiscrFilm = ({route, addFavourite}) => {
+const DiscrFilm = ({route}) => {
   const {film} = route.params;
   const shadowOpt = {
     width: (width - 10 + 2) / 2,
@@ -31,8 +30,7 @@ const DiscrFilm = ({route, addFavourite}) => {
   const [fav, setFav] = useState(film.favourite);
 
   return (
-    <ScrollView
-      style={{backgroundColor: '#898996', opacity: 0.9, height: '100%'}}>
+    <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
         <View>
           <BoxShadow setting={shadowOpt}>
@@ -41,7 +39,7 @@ const DiscrFilm = ({route, addFavourite}) => {
               source={{
                 uri: `http://image.tmdb.org/t/p/w342${film.poster_path}`,
               }}
-              style={{borderRadius: 20}}
+              style={styles.image}
             />
           </BoxShadow>
         </View>
@@ -118,14 +116,21 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.8,
     borderColor: 'gray',
   },
-  headerTitle:{
-    fontWeight:'700'
+  headerTitle: {
+    fontWeight: '700',
   },
-  center:{
-    justifyContent:'center'
-  }
+  center: {
+    justifyContent: 'center',
+  },
+  scrollView: {
+    backgroundColor: '#898996',
+    opacity: 0.9,
+    height: '100%',
+  },
+  image: {
+    borderRadius: 20,
+  },
 });
-
 
 const mapDispatchToProps = (dispatch) => {
   return {

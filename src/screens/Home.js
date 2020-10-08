@@ -15,7 +15,7 @@ class Home extends React.Component {
 
     const {navigation} = this.props;
     return (
-      <SafeAreaView style={{backgroundColor: '#e6e6df', flex: 1}}>
+      <SafeAreaView style={styles.saveArea}>
         <FlatGrid
           ListHeaderComponent={HeaderHome}
           contentContainerStyle={styles.imageBlock}
@@ -24,7 +24,7 @@ class Home extends React.Component {
           spacing={10}
           ListEmptyComponent={
             <ActivityIndicator
-              style={{justifyContent: 'center'}}
+              style={styles.activeIndicator}
               size="large"
               color="#00ff00"
             />
@@ -45,16 +45,23 @@ const styles = StyleSheet.create({
   imageBlock: {
     alignItems: 'center',
   },
+  saFeArea: {
+    backgroundColor: '#e6e6df',
+    flex: 1,
+  },
+  activeIndicator: {
+    justifyContent: 'center',
+  },
 });
 
 const mapStateToProps = (state) => ({
   films: state.data.films,
   favouriteFilms: state.data.favouriteFilms,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getData: () => dispatch(getData()),
   addFavourite: (id) => dispatch(addFavourite(id)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
