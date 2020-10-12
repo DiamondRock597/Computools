@@ -8,8 +8,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
 
-const DiscrFilm = ({route, addFavourite}) => {
-  const {film} = route.params;
+const DiscrFilmContainer = (props) => {
+  const {film} = props.route.params;
+  console.log(props);
+  const {handleFavourite} = props;
   const shadowOpt = {
     width: (width - 10 + 2) / 2,
     height: 300,
@@ -46,7 +48,7 @@ const DiscrFilm = ({route, addFavourite}) => {
         <View style={styles.textRatingBlock}>
           <Icon
             onPress={() => {
-              addFavourite(film.id);
+              handleFavourite(film.id);
               setFav(!fav);
             }}
             name={fav ? 'star' : 'star-o'}
@@ -131,4 +133,9 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
 });
-export default DiscrFilm;
+
+const mapDispatchToProps = (dispatch) => ({
+  handleFavourite: (id) => dispatch(addFavourite(id)),
+});
+
+export const DiscrFilm = connect(null, mapDispatchToProps)(DiscrFilmContainer);

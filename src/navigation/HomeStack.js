@@ -3,13 +3,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from '../screens/Home';
 import {HeaderButton} from '../components/HeaderButton';
-import DiscrFilm from '../components/componentForScreens/discrFilm';
+import {DiscrFilm} from '../components/componentForScreens/discrFilm';
 
 const Stack = createStackNavigator();
 
 export class HomeStack extends React.Component {
   homeOptions = ({navigation}) => ({
-    headerRight: () => <HeaderButton handlePress={navigation.openDrawer} />,
+    headerLeft: () => <HeaderButton handlePress={navigation.openDrawer} />,
   });
   render() {
     return (

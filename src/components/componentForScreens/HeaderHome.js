@@ -3,11 +3,11 @@ import {View, StyleSheet, Text} from 'react-native';
 
 export const HeaderHome = () => (
   <View style={styles.headerHome}>
-      <Text h2 style={styles.headerText}>
-        Latest Release
-      </Text>
-    </View>
-)
+    <Text h2 style={styles.headerText}>
+      Latest Release
+    </Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
   headerHome: {

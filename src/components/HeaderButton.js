@@ -14,6 +14,6 @@ export const HeaderButton = ({handlePress}) => (
 
 const styles = StyleSheet.create({
   icon: {
-    marginRight: 20,
+    marginLeft: 15,
   },
 });

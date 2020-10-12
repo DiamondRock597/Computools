@@ -3,12 +3,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Favourite from '../screens/Favourite';
 import {HeaderButton} from '../components/HeaderButton';
-import DiscrFilm from '../components/componentForScreens/discrFilm';
+import {DiscrFilm} from '../components/componentForScreens/discrFilm';
 const Stack = createStackNavigator();
 
 export class FavouriteStack extends React.Component {
   favouriteOptions = ({navigation}) => ({
-    headerRight: () => <HeaderButton handlePress={navigation.openDrawer} />,
+    headerLeft: () => <HeaderButton handlePress={navigation.openDrawer} />,
   });
 
   render() {
