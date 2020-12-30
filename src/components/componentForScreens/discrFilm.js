@@ -10,7 +10,7 @@ const {width} = Dimensions.get('window');
 
 const DiscrFilmContainer = (props) => {
   const {film} = props.route.params;
-  console.log(props);
+
   const {handleFavourite} = props;
   const shadowOpt = {
     width: (width - 10 + 2) / 2,

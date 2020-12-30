@@ -7,9 +7,7 @@ export const getData = () => async (dispatch) => {
     );
     const data = await responce.json();
     dispatch({type: GET_DATA, payload: data.results});
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
 
 export const addFavourite = (id) => ({type: ADD_FAV, payload: id});
